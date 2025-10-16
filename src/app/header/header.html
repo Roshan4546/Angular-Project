@@ -1,0 +1,87 @@
+<section>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
+    <div class="container-fluid">
+      <!-- Brand -->
+      <a class="navbar-brand fw-bold text-danger" routerLink="/" routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact:true}">
+        City Care Hospital
+      </a>
+
+      <!-- Toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact:true}">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/services" routerLinkActive="active">Services</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/doctors" routerLinkActive="active">Doctors</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/blog" routerLinkActive="active">Blog</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+          </li>
+
+          <!-- Dropdown -->
+          <li class="nav-item dropdown" *ngIf="services?.length">
+            <a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Departments
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
+              <div class="dropdown-columns">
+                <li *ngFor="let dept of services">
+                  <a class="dropdown-item d-flex align-items-center" [routerLink]="dept.link"
+                    routerLinkActive="active-dropdown">
+                    <i [class]="dept.icon + ' me-2'"></i> {{ dept.title }}
+                  </a>
+                </li>
+              </div>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- Right Section -->
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item">
+            <a class="btn btn-danger rounded-pill me-2" routerLink="/signup">New User Portal</a>
+          </li>
+
+          <li class="nav-item">
+            <select class="custom-select-dropdown" (change)="onRoleSelect($event)">
+              <option value="" selected disabled>Hospital Portal</option>
+              <option value="/adminlogin">Admin Login</option>
+              <option value="/doclogin">Doctor Login</option>
+              <option value="/nurselogin">Nurse Login</option>
+              <option value="/patientlogin">Patient Login</option>
+              <option value="/hospitallogin">Hospital Accounts</option>
+              <option value="/maintanacelogin">Maintenance Staff</option>
+              <option value="/ambulatorylogin">Ambulatory Care</option>
+              <option value="/pharmacylogin">Pharmacy Care</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+</section>

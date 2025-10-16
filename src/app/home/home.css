@@ -1,0 +1,366 @@
+/* ================= GLOBAL NAVBAR STYLING ================= */
+.navbar {
+  background: rgba(18, 18, 18, 0.9) !important;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease-in-out;
+  padding: 0.7rem 1.5rem;
+}
+
+.navbar:hover {
+  background: rgba(24, 24, 24, 0.98);
+  transform: scale(1.002);
+}
+
+/* ================= BRAND ================= */
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #dc3545 !important;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+  text-shadow: 0 0 15px rgba(220, 53, 69, 0.7);
+  transform: scale(1.05);
+}
+
+/* ================= NAV LINKS ================= */
+.nav-link {
+  color: #dcdcdc !important;
+  font-weight: 500;
+  margin-right: 0.8rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #fff !important;
+  transform: scale(1.08);
+}
+
+.nav-link.active {
+  color: #dc3545 !important;
+  border-bottom: 2px solid #dc3545;
+  padding-bottom: 3px;
+}
+
+/* ================= DROPDOWN ================= */
+.dropdown-menu {
+  background: rgba(33, 37, 41, 0.95);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.3s ease-in-out;
+  padding: 1rem 1.2rem;
+  width: 650px;
+}
+
+.dropdown-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.3rem 1rem;
+}
+
+.dropdown-item {
+  color: #e0e0e0;
+  font-weight: 500;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #dc3545;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* ================= LOGIN DROPDOWN ================= */
+.custom-select-dropdown {
+  background: linear-gradient(135deg, #dc3545, #b02a37);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 8px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.custom-select-dropdown:hover {
+  background: linear-gradient(135deg, #b02a37, #dc3545);
+  transform: translateY(-2px);
+}
+
+.custom-select-dropdown:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.4);
+}
+
+.custom-select-dropdown option {
+  color: #fff;
+  background-color: #050505;
+}
+
+/* ================= HERO SECTION ================= */
+.hero {
+  height: 90vh;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url('https://imgs.search.brave.com/0cRZV584MYpzuzsKyN0hOORFWDUDKLPl8au2L1W1HdU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA4Lzg3LzQ4LzQx/LzM2MF9GXzg4NzQ4/NDE1MF9KWjlTT0o1/dU81bFFISW14WFRY/QzhmYmdWSWZGSG5l/cC5qcGc')
+      center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+}
+
+
+
+
+.hero h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  animation: slideInDown 1s ease;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-top: 10px;
+  animation: fadeInUp 1.2s ease;
+}
+
+.hero .btn-danger {
+  padding: 0.8rem 2rem;
+  font-weight: 600;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.hero .btn-danger:hover {
+  background: #b02a37;
+  transform: scale(1.07);
+  box-shadow: 0 0 20px rgba(220, 53, 69, 0.6);
+}
+
+/* ================= COUNTER SECTION ================= */
+.stats-section {
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+
+.counter {
+  font-size: 2.5rem;
+  color: #dc3545;
+  font-weight: 700;
+  transition: color 0.4s ease, transform 0.4s ease;
+}
+
+.counter:hover {
+  color: #b02a37;
+  transform: scale(1.05);
+}
+
+/* ================= SERVICES SECTION ================= */
+.services h2 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #dc3545;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.services h2::after {
+  content: "";
+  width: 80px;
+  height: 3px;
+  background: #dc3545;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 5px;
+}
+
+.service-card {
+  border: none;
+  border-radius: 15px;
+  background: #fff;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(220, 53, 69, 0.3);
+}
+
+.service-card i {
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover i {
+  transform: scale(1.2);
+}
+
+.service-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+  transition: all 0.5s ease;
+}
+
+.service-card:hover::after {
+  left: 100%;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  background: #1a1a1a;
+  color: #ccc;
+  margin-top: 50px;
+  font-size: 15px;
+  padding: 2rem 0;
+  letter-spacing: 0.5px;
+}
+
+.footer i {
+  font-size: 1.5rem;
+  margin: 0 8px;
+  color: #ccc;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer i:hover {
+  color: #dc3545;
+  transform: scale(1.2);
+}
+
+/* ================= CHATBOT BUTTON ================= */
+.chatbot-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #0077cc;
+  color: #fff;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+  z-index: 1000;
+}
+
+.chatbot-btn:hover {
+  background: #005fa3;
+  transform: scale(1.05);
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.3rem;
+  }
+
+  .nav-link {
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+
+  .custom-select-dropdown {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .dropdown-menu {
+    width: 100%;
+    text-align: center;
+  }
+
+  .dropdown-columns {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .dropdown-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================= ACTIVE LINK ================= */
+.active {
+  border-bottom: 3px solid crimson;
+  border-radius: 3px;
+  padding-bottom: 3px;
+}
+
+/* ================= ACTIVE LINK STYLING ================= */
+.nav-link.active,
+.dropdown-item.active-dropdown {
+  color: #dc3545 !important;
+  border-bottom: 2px solid #dc3545;
+  font-weight: 600;
+  transform: scale(1.05);
+}
+
+.nav-link.active:hover {
+  color: #fff !important;
+  border-color: #fff;
+}

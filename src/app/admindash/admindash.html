@@ -1,0 +1,52 @@
+<section>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"> <b> HopeCare Hospital </b></a>
+
+
+
+
+    <div class="mx-2">
+      <button style="margin: 5px;" class="btn btn-danger" data-toggle="modal" data-target="#loginModal"><a
+          style="color: white;" href="javascript:void(0);" routerLink="/appointment">Appointment</a></button>
+      <button style="margin: 5px;" class="btn btn-danger" data-toggle="modal" data-target="#loginModal"><a
+          style="color:white;" href="javascript:void(0);" (click)="logout()">Logout</a></button>
+
+    </div>
+  </nav>
+
+  <section routerLink="/admin">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Blood Group</th>
+          <th>Prescription</th>
+          <th>Dose</th>
+          <th>Urgency</th>
+          <th>Fee</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let patient of patientdetails">
+          <td>{{patient.id}}</td>
+          <td>{{patient.name}}</td>
+          <td>{{patient.age}}</td>
+          <td>{{patient.blood}}</td>
+          <td>{{patient.prescription}}</td>
+          <td>{{patient.dose}}</td>
+          <td>{{patient.urgency}}</td>
+          <td>{{patient.fees}}</td>
+          <td>
+            <button (click)="delete(patient.id)" class="btn btn-danger">Delete</button>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</section>
