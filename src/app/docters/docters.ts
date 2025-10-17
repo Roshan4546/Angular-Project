@@ -1,22 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+// import { Component, OnInit } from '@angular/core';
 
-interface Doctor {
-    id: number;
-    name: string;
-    specialization: string;
-    experience: number;
-    image: string;
-    description: string;
-}
+// interface Doctor {
+//     id: number;
+//     name: string;
+//     specialization: string;
+//     experience: number;
+//     image: string;
+//     description: string;
+// }
 
-@Component({
-    selector: 'app-docters',
-    standalone: false,
-    templateUrl: './docters.html',
-    styleUrl: './docters.css'
-})
+// @Component({
+//     selector: 'app-docters',
+//     standalone: false,
+//     templateUrl: './docters.html',
+//     styleUrl: './docters.css'
+// })
     
-export class Docters implements OnInit {
-    doctors: Doctor[] = [];
+// // export class Docters implements OnInit {
+// //     doctors: Doctor[] = [];
     
-}
+// // }

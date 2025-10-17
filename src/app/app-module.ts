@@ -1,7 +1,7 @@
 import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-// import { FormsModule } from '@angular/forms';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 import { CommonModule, NgIf, NgFor } from '@angular/common';
@@ -23,7 +23,7 @@ import { Doclogin } from './doclogin/doclogin';
 import { Adminlogin } from './adminlogin/adminlogin';
 import { Home } from './home/home';
 import { About } from './about/about';
-import { Docters } from './docters/docters';
+// import { Docters } from './docters/docters';
 import { Blog } from './blog/blog';
 import { Contact } from './contact/contact';
 import { Department } from './department/department';
@@ -77,8 +77,8 @@ import { BookAppointment } from './bookappointment/bookappointment';
     FormsModule,
     RouterModule,
     RouterLinkActive,
-    FormsModule,          // 👈 for [(ngModel)]
-    ReactiveFormsModule,  // 👈 for [formGroup]
+    FormsModule,
+    ReactiveFormsModule,
     NgIf,
     NgFor,
     Home,
