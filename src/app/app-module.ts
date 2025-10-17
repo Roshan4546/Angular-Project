@@ -1,7 +1,7 @@
 import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 import { CommonModule, NgIf, NgFor } from '@angular/common';
 
@@ -76,6 +76,8 @@ import { BookAppointment } from './bookappointment/bookappointment';
     FormsModule,
     RouterModule,
     RouterLinkActive,
+    FormsModule,
+    ReactiveFormsModule,
     NgIf,
     NgFor,
     Home,
