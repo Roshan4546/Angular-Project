@@ -6,5 +6,18 @@ describe('About', () => {
     let component: About;
     let fixture: ComponentFixture<About>;
 
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [About]
+        })
+            .compileComponents();
+
+        fixture = TestBed.createComponent(About);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
     
 });
