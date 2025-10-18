@@ -23,7 +23,7 @@ import { Doclogin } from './doclogin/doclogin';
 import { Adminlogin } from './adminlogin/adminlogin';
 import { Home } from './home/home';
 import { About } from './about/about';
-// import { Docters } from './docters/docters';
+import { Docters } from './docters/docters';
 import { Blog } from './blog/blog';
 import { Contact } from './contact/contact';
 import { Department } from './department/department';
