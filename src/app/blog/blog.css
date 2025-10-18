@@ -1,0 +1,43 @@
+.blog {
+    background-color: #f9fafc;
+}
+
+.blog h2 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.blog-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+}
+
+.blog-img {
+    height: 220px;
+    object-fit: cover;
+}
+
+.badge {
+    background-color: #007bff;
+    font-size: 0.75rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+}
+
+.blog-summary {
+    font-size: 0.95rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .blog-img {
+        height: 180px;
+    }
+}
