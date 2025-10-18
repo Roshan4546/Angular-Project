@@ -1,6 +1,7 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-import { NgModule, Component } from '@angular/core';
-import { RouterModule, Routes, CanActivate } from '@angular/router';
+// Components
 import { Admindash } from './admindash/admindash';
 import { Appointment } from './appointment/appointment';
 import { CreateAppointment } from './create-appointment/create-appointment';
@@ -21,27 +22,25 @@ import { Docters } from './docters/docters';
 import { Blog } from './blog/blog';
 import { Department } from './department/department';
 import { Contact } from './contact/contact';
-import { setActiveConsumer } from '@angular/core/primitives/signals';
 import { Chatbot } from './chatbot/chatbot';
 import { Nurse } from './nurse/nurse';
-import { Patient } from './patient';
 import { Hospitalaccouts } from './hospitalaccouts/hospitalaccouts';
 import { Maintanacestaff } from './maintanacestaff/maintanacestaff';
 import { Ambulatory } from './ambulatory/ambulatory';
 import { Pharmacy } from './pharmacy/pharmacy';
-import { Patients } from './patients';
 import { Signup } from './signup/signup';
 import { Servicess } from './servicess/servicess';
 import { BookAppointment } from './bookappointment/bookappointment';
-const routes: Routes = [
+import { DepartmentDetail } from './department-detail/department-detail'; // ✅ <-- Add this import
 
+const routes: Routes = [
   // Admin
   { path: "adminlogin", component: Adminlogin },
   { path: "admin", component: Admindash, canActivate: [Adminauthguards] },
   { path: "appointment", component: Appointment, canActivate: [Adminauthguards] },
   { path: "create-appointment", component: CreateAppointment, canActivate: [Adminauthguards] },
 
-  // Docter
+  // Doctor
   { path: "home", component: Home },
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "docdash", component: Docdash, canActivate: [Doctauthguars] },
@@ -53,13 +52,19 @@ const routes: Routes = [
   { path: "createmedicine", component: Createmedicine, canActivate: [Doctauthguars] },
   { path: "updatemedicine/:id", component: Updatemedicine, canActivate: [Doctauthguars] },
 
+  // Departments
+  { path: "departments", component: Department },
+  { path: "departments/:name", component: DepartmentDetail }, // ✅ Works now
 
+  // Public Pages
   { path: "about", component: About },
-
   { path: "doctors", component: Docters },
   { path: "blog", component: Blog },
-  { path: "departments", component: Department },
   { path: "contact", component: Contact },
+  { path: "services", component: Servicess },
+  { path: "bookappointment", component: BookAppointment },
+
+  // Other Sections
   { path: "chatbot", component: Chatbot },
   { path: "nurselogin", component: Nurse },
   { path: "hospitallogin", component: Hospitalaccouts },
@@ -67,17 +72,10 @@ const routes: Routes = [
   { path: "ambulatorylogin", component: Ambulatory },
   { path: "pharmacylogin", component: Pharmacy },
   { path: "signup", component: Signup },
-  { path: "services", component: Servicess },
-  {path:"bookappointment", component:BookAppointment}
-
-
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule { }

@@ -1,13 +1,13 @@
 import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
-import { CommonModule, NgIf, NgFor } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing-module';
 
+// Components
 import { App } from './app';
 import { Admindash } from './admindash/admindash';
 import { Appointment } from './appointment/appointment';
@@ -37,6 +37,8 @@ import { Accounts } from './accounts/accounts';
 import { Servicess } from './servicess/servicess';
 import { Header } from './header/header';
 import { BookAppointment } from './bookappointment/bookappointment';
+import { DepartmentDetail } from './department-detail/department-detail';
+
 @NgModule({
   declarations: [
     App,
@@ -66,8 +68,8 @@ import { BookAppointment } from './bookappointment/bookappointment';
     Accounts,
     Servicess,
     Header,
-    BookAppointment
-
+    BookAppointment,
+    DepartmentDetail
   ],
   imports: [
     BrowserModule,
@@ -75,14 +77,8 @@ import { BookAppointment } from './bookappointment/bookappointment';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule,
-    RouterLinkActive,
-    FormsModule,
     ReactiveFormsModule,
-    NgIf,
-    NgFor,
-    Home,
-    RouterLink
+    RouterModule,
   ],
   providers: [
     provideBrowserGlobalErrorListeners()
