@@ -1,0 +1,62 @@
+.doctor-card {
+    border: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.doctor-img {
+    height: 250px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.doctor-desc {
+    font-size: 0.9rem;
+    color: #555;
+    min-height: 60px;
+}
+
+.btn-outline-primary {
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+
+/* Background section for doctors */
+.doctor-bg {
+    background: url("https://imgs.search.brave.com/9nZhPChy2FSzXTVotX817bc86Ggzdw2UEH5gw-HxEQg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvaG9z/cGl0YWwtcm9vbS1i/YWNrZ3JvdW5kLTc1/Z25mZ2QwemEyYndi/ZXIuanBn") no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh;
+    padding: 3rem 0;
+}
+
+/* Optional overlay for better contrast */
+.doctor-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: fit-content;
+    height: fit-content;
+    background: rgba(255, 255, 255, 0.85);
+    z-index: 0;
+}
+
+/* Ensure content is above overlay */
+.doctors {
+    position: relative;
+    z-index: 1;
+}
