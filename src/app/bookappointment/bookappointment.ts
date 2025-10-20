@@ -1,21 +1,26 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-bookappointment',
   templateUrl: './bookappointment.html',
   styleUrls: ['./bookappointment.css'],
-  standalone:false
+  standalone: false
 })
 export class BookAppointment {
+  constructor(private route: ActivatedRoute) {}
+
   specialities = [
     { title: 'Cardiology' }, { title: 'Neurology' }, { title: 'Orthopedics' },
     { title: 'Dentistry' }, { title: 'Pediatrics' }, { title: 'Oncology' },
     { title: 'Dermatology' }, { title: 'Emergency' }, { title: 'Radiology' },
     { title: 'Urology' }, { title: 'Gastroenterology' }, { title: 'Ophthalmology' },
-    { title: 'ENT (Ear, Nose, Throat)' }, { title: 'Psychiatry' }, { title: 'Physiotherapy' },
-    { title: 'Nephrology' }, { title: 'Pulmonology' }, { title: 'Endocrinology' },
-    { title: 'Rheumatology' }, { title: 'Plastic Surgery' }, { title: 'Nutrition & Dietetics' },
-    { title: 'Vaccination Center' }, { title: 'Laboratory Services' }
+    { title: 'ENT (Ear, Nose, Throat)' }, { title: 'Psychiatry' },
+    { title: 'Physiotherapy' }, { title: 'Nephrology' },
+    { title: 'Pulmonology' }, { title: 'Endocrinology' },
+    { title: 'Rheumatology' }, { title: 'Plastic Surgery' },
+    { title: 'Nutrition & Dietetics' }, { title: 'Vaccination Center' },
+    { title: 'Laboratory Services' }
   ];
 
   appointment = {
@@ -33,22 +38,29 @@ export class BookAppointment {
 
   showReceipt = false;
 
+  ngOnInit() {
+    // ✅ Get the speciality passed from department page
+    this.route.queryParams.subscribe(params => {
+      const speciality = params['speciality'];
+      if (speciality) {
+        this.appointment.speciality = speciality; // auto-select in dropdown
+      }
+    });
+  }
+
   submitAppointment() {
     const { fullName, email, gender, age, contact, speciality, date, time, terms } = this.appointment;
-    if (fullName && email && gender && age && contact && speciality && date && time && terms)
-    {
+    if (fullName && email && gender && age && contact && speciality && date && time && terms) {
       this.showReceipt = true;
       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    } else
-    {
+    } else {
       alert('⚠️ Please fill all required fields and accept the terms.');
     }
   }
 
   printReceipt() {
     const printContents = document.getElementById('receipt')?.innerHTML;
-    if (printContents)
-    {
+    if (printContents) {
       const popup = window.open('', '_blank');
       popup?.document.write(`
         <html>

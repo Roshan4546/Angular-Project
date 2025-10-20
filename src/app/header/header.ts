@@ -22,7 +22,7 @@ export class Header {
     { title: 'Urology', text: 'Urinary & kidney care.', icon: 'bi bi-droplet-half', link: '/urology' },
     { title: 'Gastroenterology', text: 'Digestive system specialists.', icon: 'bi bi-bucket', link: '/gastroenterology' },
     { title: 'Ophthalmology', text: 'Eye care and vision correction.', icon: 'bi bi-eye', link: '/ophthalmology' },
-    { title: 'ENT (Ear, Nose, Throat)', text: 'Specialized ENT treatments.', icon: 'bi bi-ear', link: '/ent' },
+    { title: 'ENT (Ear, Nose, Throat)', text: 'Specialized ENT treatments.', icon: 'bi bi-ear', link: '/ent%20%28ear,%20nose,%20throat%29' },
     { title: 'Psychiatry', text: 'Mental health and counseling.', icon: 'bi bi-heart-pulse', link: '/psychiatry' },
     { title: 'Physiotherapy', text: 'Rehabilitation and movement therapy.', icon: 'bi bi-person-walking', link: '/physiotherapy' },
     { title: 'Nephrology', text: 'Kidney care and dialysis.', icon: 'bi bi-droplet-fill', link: '/nephrology' },
