@@ -1,0 +1,101 @@
+<app-header></app-header>
+
+<section class="dept-hero text-center text-white">
+    <div class="container">
+        <h1 class="fw-bold">{{ department?.title }}</h1>
+        <p class="lead">{{ department?.desc }}</p>
+    </div>
+</section>
+
+<section class="dept-content container py-5" *ngIf="department">
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <img [src]="department.img" alt="{{ department.title }}" class="img-fluid rounded shadow-lg" />
+        </div>
+
+        <div class="col-lg-6">
+            <h2 class="fw-bold text-danger">About {{ department.title }}</h2>
+            <p class="mt-3 text-muted" *ngIf="department.about; else noAbout">
+                {{ department.about }}
+            </p>
+            <ng-template #noAbout>
+                <p class="text-muted">Detailed information about this department is coming soon.</p>
+            </ng-template>
+
+            <div class="mt-3">
+                <button class="btn btn-danger me-2" (click)="bookAppointment()">Book Appointment</button>
+                <a class="btn btn-outline-secondary" href="/contact">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Doctors -->
+    <div class="doctors mt-5">
+        <h3 class="fw-bold">Doctors</h3>
+        <div *ngIf="department.doctors?.length; else noDoctors">
+            <ul class="list-group list-group-flush mt-3">
+                <li class="list-group-item d-flex justify-content-between align-items-start"
+                    *ngFor="let doc of department.doctors">
+                    <div>
+                        <div class="fw-bold">{{ doc.name }}</div>
+                        <small class="text-muted">{{ doc.degree }} — {{ doc.exp }}</small>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <ng-template #noDoctors>
+            <p class="text-muted">No doctor details available for this department.</p>
+        </ng-template>
+    </div>
+
+    <!-- Treatment Steps -->
+    <div class="treatment-steps mt-5">
+        <h3 class="fw-bold">How treatment works</h3>
+        <div *ngIf="department.steps?.length; else noSteps">
+            <ol class="mt-3">
+                <li *ngFor="let step of department.steps">{{ step }}</li>
+            </ol>
+        </div>
+        <ng-template #noSteps>
+            <p class="text-muted">Treatment process will be updated soon.</p>
+        </ng-template>
+    </div>
+
+    <!-- Machines / Equipment -->
+    <div class="machines mt-5 mb-5">
+        <h3 class="fw-bold">Machines & Equipment</h3>
+        <div *ngIf="department.machines?.length; else noMachines">
+            <div class="d-flex flex-wrap gap-2 mt-3">
+                <span class="badge bg-light text-dark py-2 px-3" *ngFor="let m of department.machines">{{ m }}</span>
+            </div>
+        </div>
+        <ng-template #noMachines>
+            <p class="text-muted">Equipment details will be added shortly.</p>
+        </ng-template>
+    </div>
+
+    <!-- FAQ (optional) -->
+    <div class="faq mt-4" *ngIf="department.faq?.length">
+        <h4 class="fw-bold">FAQ</h4>
+        <div class="accordion mt-3" id="faqAccordion">
+            <div class="accordion-item" *ngFor="let f of department.faq; let i = index">
+                <h2 class="accordion-header" id="heading{{i}}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" [attr.aria-controls]="'collapse'+i">
+                        {{ f.q }}
+                    </button>
+                </h2>
+                <div [id]="'collapse'+i" class="accordion-collapse collapse" [attr.aria-labelledby]="'heading'+i"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        {{ f.a }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer text-center py-4 bg-dark text-white">
+    <p>© 2025 HopeCare Hospital | Excellence in Healthcare ❤</p>
+</footer>
