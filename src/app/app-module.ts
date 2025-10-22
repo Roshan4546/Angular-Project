@@ -1,4 +1,4 @@
-import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -68,12 +68,11 @@ import { Login } from './login/login'; // ✅ Login added
     CommonModule,
     AppRoutingModule,
     FormsModule,
+    Home,
     ReactiveFormsModule,
-    RouterModule,
-    Home
+    RouterModule
   ],
   providers: [
-    provideBrowserGlobalErrorListeners(),
     provideHttpClient(withInterceptorsFromDi())
   ],
   bootstrap: [App]
