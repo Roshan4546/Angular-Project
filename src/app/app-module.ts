@@ -1,6 +1,6 @@
 import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -16,11 +16,7 @@ import { Docdash } from './docdash/docdash';
 import { Createpatients } from './createpatients/createpatients';
 import { Medicinelist } from './medicinelist/medicinelist';
 import { Createmedicine } from './createmedicine/createmedicine';
-import { Updatepatient } from './updatepatient/updatepatient';
 import { Viewpatient } from './viewpatient/viewpatient';
-import { Updatemedicine } from './updatemedicine/updatemedicine';
-import { Doclogin } from './doclogin/doclogin';
-import { Adminlogin } from './adminlogin/adminlogin';
 import { Home } from './home/home';
 import { About } from './about/about';
 import { Docters } from './docters/docters';
@@ -28,7 +24,6 @@ import { Blog } from './blog/blog';
 import { Contact } from './contact/contact';
 import { Department } from './department/department';
 import { Chatbot } from './chatbot/chatbot';
-import { Nurse } from './nurse/nurse';
 import { Hospitalaccouts } from './hospitalaccouts/hospitalaccouts';
 import { Maintanacestaff } from './maintanacestaff/maintanacestaff';
 import { Ambulatory } from './ambulatory/ambulatory';
@@ -38,6 +33,7 @@ import { Servicess } from './servicess/servicess';
 import { Header } from './header/header';
 import { BookAppointment } from './bookappointment/bookappointment';
 import { DepartmentDetail } from './department-detail/department-detail';
+import { Login } from './login/login'; // ✅ Login added
 
 @NgModule({
   declarations: [
@@ -49,18 +45,13 @@ import { DepartmentDetail } from './department-detail/department-detail';
     Createpatients,
     Medicinelist,
     Createmedicine,
-    Updatepatient,
     Viewpatient,
-    Updatemedicine,
-    Doclogin,
-    Adminlogin,
     About,
     Docters,
     Blog,
     Contact,
     Department,
     Chatbot,
-    Nurse,
     Hospitalaccouts,
     Maintanacestaff,
     Ambulatory,
@@ -69,19 +60,21 @@ import { DepartmentDetail } from './department-detail/department-detail';
     Servicess,
     Header,
     BookAppointment,
-    DepartmentDetail
+    DepartmentDetail,
+    Login // ✅ Declared here
   ],
   imports: [
     BrowserModule,
     CommonModule,
     AppRoutingModule,
-    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    Home
   ],
   providers: [
-    provideBrowserGlobalErrorListeners()
+    provideBrowserGlobalErrorListeners(),
+    provideHttpClient(withInterceptorsFromDi())
   ],
   bootstrap: [App]
 })

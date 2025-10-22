@@ -9,11 +9,7 @@ import { Docdash } from './docdash/docdash';
 import { Createpatients } from './createpatients/createpatients';
 import { Medicinelist } from './medicinelist/medicinelist';
 import { Createmedicine } from './createmedicine/createmedicine';
-import { Updatepatient } from './updatepatient/updatepatient';
 import { Viewpatient } from './viewpatient/viewpatient';
-import { Updatemedicine } from './updatemedicine/updatemedicine';
-import { Doclogin } from './doclogin/doclogin';
-import { Adminlogin } from './adminlogin/adminlogin';
 import { Adminauthguards } from './adminauthguards';
 import { Doctauthguars } from './doctauthguars';
 import { Home } from './home/home';
@@ -23,7 +19,6 @@ import { Blog } from './blog/blog';
 import { Department } from './department/department';
 import { Contact } from './contact/contact';
 import { Chatbot } from './chatbot/chatbot';
-import { Nurse } from './nurse/nurse';
 import { Hospitalaccouts } from './hospitalaccouts/hospitalaccouts';
 import { Maintanacestaff } from './maintanacestaff/maintanacestaff';
 import { Ambulatory } from './ambulatory/ambulatory';
@@ -31,11 +26,11 @@ import { Pharmacy } from './pharmacy/pharmacy';
 import { Signup } from './signup/signup';
 import { Servicess } from './servicess/servicess';
 import { BookAppointment } from './bookappointment/bookappointment';
-import { DepartmentDetail } from './department-detail/department-detail'; // ✅ <-- Add this import
+import { DepartmentDetail } from './department-detail/department-detail';
+import { Login } from './login/login'; // ✅ Login page import
 
 const routes: Routes = [
   // Admin
-  { path: "adminlogin", component: Adminlogin },
   { path: "admin", component: Admindash, canActivate: [Adminauthguards] },
   { path: "appointment", component: Appointment, canActivate: [Adminauthguards] },
   { path: "create-appointment", component: CreateAppointment, canActivate: [Adminauthguards] },
@@ -44,17 +39,14 @@ const routes: Routes = [
   { path: "home", component: Home },
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "docdash", component: Docdash, canActivate: [Doctauthguars] },
-  { path: "doclogin", component: Doclogin },
   { path: "createpatient", component: Createpatients, canActivate: [Doctauthguars] },
-  { path: "updatepatient/:id", component: Updatepatient, canActivate: [Doctauthguars] },
   { path: "viewpatient/:id", component: Viewpatient, canActivate: [Doctauthguars] },
   { path: "medicinelist", component: Medicinelist, canActivate: [Doctauthguars] },
   { path: "createmedicine", component: Createmedicine, canActivate: [Doctauthguars] },
-  { path: "updatemedicine/:id", component: Updatemedicine, canActivate: [Doctauthguars] },
 
   // Departments
   { path: "departments", component: Department },
-  { path: "departments/:name", component: DepartmentDetail }, // ✅ Works now
+  { path: "departments/:name", component: DepartmentDetail },
 
   // Public Pages
   { path: "about", component: About },
@@ -66,12 +58,17 @@ const routes: Routes = [
 
   // Other Sections
   { path: "chatbot", component: Chatbot },
-  { path: "nurselogin", component: Nurse },
   { path: "hospitallogin", component: Hospitalaccouts },
   { path: "maintanacelogin", component: Maintanacestaff },
   { path: "ambulatorylogin", component: Ambulatory },
   { path: "pharmacylogin", component: Pharmacy },
   { path: "signup", component: Signup },
+
+  // ✅ New Staff Login Page
+  { path: "login", component: Login },
+
+  // 404 fallback (optional)
+  { path: "**", redirectTo: "home" }
 ];
 
 @NgModule({
