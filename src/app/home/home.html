@@ -1,60 +1,73 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
-    <div class="container-fluid"> <!-- Brand --> <a class="navbar-brand fw-bold text-danger" routerLink="/">HopeCare
-            Hospital</a> <!-- Toggler --> <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span> </button> <!-- Links -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" routerLink="/" routerLinkActive="active"
-                        [routerLinkActiveOptions]="{exact:true}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/services">Services</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/about">About</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/doctors">Doctors</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/blog">Blog</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/contact">Contact</a></li>
+<section>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
+        <div class="container-fluid">
 
-                <!-- Dropdown -->
-                <li class="nav-item dropdown" *ngIf="services?.length">
-                    <a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Departments
+            <!-- Brand -->
+            <a class="navbar-brand fw-bold text-danger" routerLink="/">City Care Hospital</a>
+
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{exact:true}">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" routerLink="/services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/doctors">Doctors</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/blog">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/contact">Contact</a></li>
+
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown" *ngIf="services?.length">
+                        <a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Departments
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
+                            <div class="dropdown-columns">
+                                <li *ngFor="let dept of services">
+                                    <a class="dropdown-item d-flex align-items-center"
+                                        [routerLink]="['/departments', dept.title.toLowerCase()]">
+                                        <i [class]="dept.icon + ' me-2'"></i> {{ dept.title }}
+                                    </a>
+                                </li>
+                            </div>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- Login & Signup Buttons -->
+                <div class="d-flex">
+                    <a class="btn btn-outline-light me-2" routerLink="/login" style="border-radius: 30px;">
+                        Login
                     </a>
+                    <a class="btn btn-danger" routerLink="/signup" style="border-radius: 30px;">
+                        Register
+                    </a>
+                </div>
 
-                    <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
-                        <div class="dropdown-columns">
-                            <li *ngFor="let dept of services" routerLink="/departments">
-                                <a class="dropdown-item d-flex align-items-center" [routerLink]="dept.link">
-                                    <i [class]="dept.icon + ' me-2'"></i> {{ dept.title }}
-                                </a>
-                            </li>
-                        </div>
-                    </ul>
-                </li>
-            </ul>
-
-            <!-- Login Dropdown -->
-            <li class="nav-item"><a class="nav-link" routerLink="/signup" class="btn btn-danger"
-                    style="margin-right:5px; border-radius: 30px;">New User Portal</a></li>
-            <div class="d-flex align-items-center"> <select class="custom-select-dropdown"
-                    onchange="if(this.value) window.location=this.value" title="who you are..">
-                    <option value="" selected disabled> Hospital Portal</option>
-                    <option value="/adminlogin">Admin Login</option>
-                    <option value="/doclogin">Doctor Login</option>
-                    <option value="/nurselogin">Nurse Login</option>
-                    <option value="/patientlogin">Patient Login</option>
-                    <option value="/hospitallogin">Hospital Accounts</option>
-                    <option value="/maintanacelogin">Maintanance Staff</option>
-                    <option value="/ambulatorylogin">Ambulatory Care</option>
-                    <option value="/pharmacylogin">Pharmacy Care</option>
-                </select> </div>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</section>
+
 
 <!-- HERO -->
 <section class="hero d-flex align-items-center text-center text-white">
     <div class="container">
-        <h1 class="display-4 fw-bold animate_animated animate_fadeInDown">Welcome to HopeCare Hospital</h1>
+        <h1 class="display-4 fw-bold animate_animated animate_fadeInDown">Welcome to City Care Hospital</h1>
         <p class="lead mt-3 animate_animated animate_fadeInUp">Because Every Life Deserves Hope ❤</p> <a
             routerLink="/services"
             class="btn btn-danger btn-lg mt-4 shadow animate_animated animatepulse animate_infinite"

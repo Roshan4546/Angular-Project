@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-servicess',
   standalone: false,
   templateUrl: './servicess.html',
-  styleUrl: './servicess.css'
+  styleUrls: ['./servicess.css']
 })
 export class Servicess {
+  constructor(private router: Router) { }
 
   services = [
     { title: 'Cardiology', text: 'Heart specialists for all ages.', icon: 'bi bi-heart', link: '/cardiology' },
@@ -37,7 +39,6 @@ export class Servicess {
       icon: 'bi bi-droplet',
       link: '/laboratory'
     }
-    ,
   ];
 
   reviews = [
@@ -47,7 +48,6 @@ export class Servicess {
   ];
 
   ngAfterViewInit() {
-    // Fade-in animation for cards
     const cards = document.querySelectorAll('.service-card');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -59,5 +59,12 @@ export class Servicess {
 
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ✅ Corrected function
+  bookAppointment(serviceTitle: string) {
+    this.router.navigate(['/bookappointment'], {
+      queryParams: { speciality: serviceTitle }
+    });
   }
 }
