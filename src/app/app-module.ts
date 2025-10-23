@@ -5,14 +5,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
+// Routing
 import { AppRoutingModule } from './app-routing-module';
+
 
 // Components
 import { App } from './app';
 import { Admindash } from './admindash/admindash';
 import { Appointment } from './appointment/appointment';
 import { CreateAppointment } from './create-appointment/create-appointment';
-import { Docdash } from './docdash/docdash';
 import { Createpatients } from './createpatients/createpatients';
 import { Medicinelist } from './medicinelist/medicinelist';
 import { Createmedicine } from './createmedicine/createmedicine';
@@ -33,7 +34,8 @@ import { Servicess } from './servicess/servicess';
 import { Header } from './header/header';
 import { BookAppointment } from './bookappointment/bookappointment';
 import { DepartmentDetail } from './department-detail/department-detail';
-import { Login } from './login/login'; // ✅ Login added
+import { Login } from './login/login';
+import { Readmore } from './readmore/readmore'; // ✅ Included Readmore standalone component
 
 @NgModule({
   declarations: [
@@ -41,7 +43,6 @@ import { Login } from './login/login'; // ✅ Login added
     Admindash,
     Appointment,
     CreateAppointment,
-    Docdash,
     Createpatients,
     Medicinelist,
     Createmedicine,
@@ -61,16 +62,17 @@ import { Login } from './login/login'; // ✅ Login added
     Header,
     BookAppointment,
     DepartmentDetail,
-    Login // ✅ Declared here
+    Login,
   ],
   imports: [
     BrowserModule,
     CommonModule,
-    AppRoutingModule,
+    Home,             // ✅ Standalone component import
+    AppRoutingModule, // Main routing
     FormsModule,
-    Home,
+    Readmore,         // ✅ Standalone Readmore component
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,   // ✅ Integrated Doctor Portal Module
   ],
   providers: [
     provideHttpClient(withInterceptorsFromDi())

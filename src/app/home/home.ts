@@ -1,16 +1,15 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgFor, NgIf } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-
-declare var bootstrap: any; // For Bootstrap Modals
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.html',
   styleUrls: ['./home.css'],
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, NgFor, NgIf]
+  imports: [CommonModule, RouterModule, RouterLink, RouterLinkActive]
 })
 export class Home implements AfterViewInit {
 

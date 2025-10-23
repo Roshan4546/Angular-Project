@@ -29,23 +29,23 @@
                     <li class="nav-item"><a class="nav-link" routerLink="/contact">Contact</a></li>
 
                     <!-- Dropdown -->
-                    <li class="nav-item dropdown" *ngIf="services?.length">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Departments
                         </a>
-
                         <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
-                            <div class="dropdown-columns">
-                                <li *ngFor="let dept of services">
+                            <ng-container *ngFor="let dept of services">
+                                <li>
                                     <a class="dropdown-item d-flex align-items-center"
                                         [routerLink]="['/departments', dept.title.toLowerCase()]">
                                         <i [class]="dept.icon + ' me-2'"></i> {{ dept.title }}
                                     </a>
                                 </li>
-                            </div>
+                            </ng-container>
                         </ul>
                     </li>
+
                 </ul>
 
                 <!-- Login & Signup Buttons -->
@@ -100,17 +100,21 @@
     </div>
 </section>
 
-<!-- SERVICES -->
+<!-- SERVICES SECTION -->
 <section class="services py-5">
-    <div class="container text-center" routerLink="/departments">
+    <div class="container text-center">
         <h2 class="mb-5 fw-bold text-danger">Our Main Departments</h2>
-        <div class="row g-4"> <!-- Existing + New Cards -->
+        <div class="row g-4">
             <div class="col-md-4" *ngFor="let service of services">
                 <div class="card service-card h-100 shadow-lg">
-                    <div class="card-body"> <i [class]="service.icon + ' display-4 text-danger'"></i>
+                    <div class="card-body">
+                        <i [class]="service.icon + ' display-4 text-danger'"></i>
                         <h4 class="card-title mt-3">{{service.title}}</h4>
-                        <p class="card-text">{{service.text}}</p> <a [routerLink]="service.link"
-                            class="btn btn-outline-danger">Learn More</a>
+                        <p class="card-text">{{service.text}}</p>
+
+                        <!-- ✅ Changed router link to dynamic readmore route -->
+                        <a [routerLink]="['/readmore', service.title.toLowerCase()]" class="btn btn-outline-danger">Read
+                            More</a>
                     </div>
                 </div>
             </div>
@@ -125,7 +129,7 @@
                 class="text-white mx-2"><i class="bi bi-instagram"></i></a> <a href="#" class="text-white mx-2"><i
                     class="bi bi-twitter"></i></a> <a href="#" class="text-white mx-2"><i
                     class="bi bi-linkedin"></i></a> </div>
-        <p class="mb-0">&copy; 2025 HopeCare Hospital | Designed with ❤ for Better Healthcare</p>
+        <p class="mb-0">&copy; 2025 City Care Hospital | Designed with ❤ for Better Healthcare</p>
     </div>
 </footer>
 
