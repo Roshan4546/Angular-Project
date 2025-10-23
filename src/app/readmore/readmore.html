@@ -1,0 +1,65 @@
+<div class="container py-5" *ngIf="selectedDept; else notFound">
+
+    <h2 class="text-center fw-bold text-primary">{{selectedDept.title}}</h2>
+
+    <img [src]="selectedDept.img" alt="{{selectedDept.title}}" class="img-fluid rounded mx-auto d-block my-4"
+
+        width="60%">
+
+    <p class="text-center text-muted">{{selectedDept.about}}</p>
+
+
+
+    <h4 class="text-primary fw-bold mt-4">Doctors</h4>
+
+    <ul class="list-group mb-3">
+
+        <li class="list-group-item" *ngFor="let doc of selectedDept.doctors">
+
+            {{doc.name}} — {{doc.degree}} ({{doc.exp}})
+
+        </li>
+
+    </ul>
+
+
+
+    <h4 class="text-primary fw-bold">Procedure Steps</h4>
+
+    <ol class="text-muted">
+
+        <li *ngFor="let step of selectedDept.steps">{{step}}</li>
+
+    </ol>
+
+
+
+    <h4 class="text-primary fw-bold mt-4">Equipments Used</h4>
+
+    <div class="d-flex flex-wrap gap-2">
+
+        <span *ngFor="let m of selectedDept.machines" class="badge bg-light text-dark border">{{m}}</span>
+
+    </div>
+
+
+
+    <div class="text-center mt-5">
+
+        <a routerLink="/home" class="btn btn-secondary">Back to Home</a>
+
+    </div>
+
+</div>
+
+
+
+<ng-template #notFound>
+
+    <div class="text-center py-5">
+
+        <h4 class="text-danger">Department not found.</h4>
+
+    </div>
+
+</ng-template>
