@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -12,6 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./readmore.css']
 })
 export class Readmore implements OnInit {
+
   title: string = '';
   selectedDept: any;
 
@@ -356,3 +356,7 @@ export class Readmore implements OnInit {
     );
   }
 }
+
+  
+
+
