@@ -1,52 +1,54 @@
 <section>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="#"> <b> HopeCare Hospital </b></a>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark px-3">
+    <a class="navbar-brand fw-bold" href="#">City Care Hospital</a>
 
-
-
-
-    <div class="mx-2">
-      <button style="margin: 5px;" class="btn btn-danger" data-toggle="modal" data-target="#loginModal"><a
-          style="color: white;" href="javascript:void(0);" routerLink="/appointment">Appointment</a></button>
-      <button style="margin: 5px;" class="btn btn-danger" data-toggle="modal" data-target="#loginModal"><a
-          style="color:white;" href="javascript:void(0);" (click)="logout()">Logout</a></button>
-
+    <div class="ms-auto d-flex">
+      <button class="btn btn-danger me-2">
+        <a class="text-white text-decoration-none" routerLink="/appointment">Appointment</a>
+      </button>
+      <button class="btn btn-danger" (click)="logout()">Logout</button>
     </div>
   </nav>
 
-  <section routerLink="/admin">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Blood Group</th>
-          <th>Prescription</th>
-          <th>Dose</th>
-          <th>Urgency</th>
-          <th>Fee</th>
-          <th>Action</th>
-        </tr>
-      </thead>
+  <!-- Patient Table Section -->
+  <section class="container my-5" routerLink="/admin">
+    <h2 class="text-center mb-4 fw-bold">Patient Details</h2>
 
-      <tbody>
-        <tr *ngFor="let patient of patientdetails">
-          <td>{{patient.id}}</td>
-          <td>{{patient.name}}</td>
-          <td>{{patient.age}}</td>
-          <td>{{patient.blood}}</td>
-          <td>{{patient.prescription}}</td>
-          <td>{{patient.dose}}</td>
-          <td>{{patient.urgency}}</td>
-          <td>{{patient.fees}}</td>
-          <td>
-            <button (click)="delete(patient.id)" class="btn btn-danger">Delete</button>
-          </td>
+    <div class="table-responsive shadow-sm rounded">
+      <table class="table table-striped align-middle text-center">
+        <thead class="table-dark">
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Blood Group</th>
+            <th>Prescription</th>
+            <th>Dose</th>
+            <th>Urgency</th>
+            <th>Fee</th>
+            <th>Action</th>
+          </tr>
+        </thead>
 
-        </tr>
-      </tbody>
-    </table>
+        <tbody>
+          <tr *ngFor="let patient of patientdetails">
+            <td>{{ patient.id }}</td>
+            <td>{{ patient.name }}</td>
+            <td>{{ patient.age }}</td>
+            <td>{{ patient.blood }}</td>
+            <td>{{ patient.prescription }}</td>
+            <td>{{ patient.dose }}</td>
+            <td>{{ patient.urgency }}</td>
+            <td>{{ patient.fees | currency:'INR' }}</td>
+            <td>
+              <button (click)="delete(patient.id)" class="btn btn-sm btn-outline-danger">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
-
 </section>
