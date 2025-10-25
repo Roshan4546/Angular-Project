@@ -1,54 +1,70 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-  <a class="navbar-brand" href="#"> <b> HopeCare Hospital </b></a>
-
-
-
-
+<nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+  <a class="navbar-brand fw-bold ms-3" href="#">🏥 City Care Hospital</a>
+  <div class="mx-auto"></div>
   <div class="mx-2">
-    <a class="btn btn-danger" style="margin:5px;" routerLink="/docdash">Back</a>
-
+    <a class="btn btn-danger btn-sm px-3" routerLink="/docdash">← Back</a>
   </div>
-
 </nav>
 
-<div class="container">
-  <h2 class="text-center">Add new Patient</h2>
-  <form (ngSubmit)="onSubmit()">
+<div class="container mt-5">
+  <div class="card shadow-lg border-0 rounded-4 p-4">
+    <h2 class="text-center text-primary mb-4">🩺 Add New Patient</h2>
 
-    <div class="form-group">
-      <label>Name</label>
-      <input type="text" name="name" id="name" placeholder="Enter Your Name" class="form-control"
-        [(ngModel)]="patient.name" />
-    </div>
-    <div class="form-group">
-      <label>Age</label>
-      <input type="text" id="age" name="age" placeholder="Enter Your age" class="form-control"
-        [(ngModel)]="patient.age" />
-    </div>
-    <div class="form-group">
-      <label>Blood</label>
-      <input type="text" id="blood" name="blood" placeholder="Enter Your Blood-Group" class="form-control"
-        [(ngModel)]="patient.blood" />
-    </div>
-    <div class="form-group">
-      <label>Prescription</label>
-      <input type="text" id="prescription" name="prescription" placeholder="Prescription" class="form-control"
-        [(ngModel)]="patient.prescription" />
-    </div>
-    <div class="form-group">
-      <label>Dose</label>
-      <input type="text" id="dose" name="dose" placeholder="Dose" class="form-control" [(ngModel)]="patient.dose" />
-    </div>
-    <div class="form-group">
-      <label>Fees</label>
-      <input type="text" id="fees" name="fees" placeholder="Fees" class="form-control" [(ngModel)]="patient.fees" />
-    </div>
-    <div class="form-group">
-      <label>Urgency</label>
-      <input type="text" id="urgency" name="urgency" placeholder="Urgency" class="form-control"
-        [(ngModel)]="patient.urgency" />
-    </div>
-    <button type="submit" class="btn btn-success">Submit</button>
+    <form (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Name</label>
+          <input type="text" class="form-control form-control-sm" id="name" name="name" placeholder="Enter Patient Name"
+            [(ngModel)]="patient.name" required>
+        </div>
 
-  </form>
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Age</label>
+          <input type="number" class="form-control form-control-sm" id="age" name="age" placeholder="Enter Age"
+            [(ngModel)]="patient.age" required>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Blood Group</label>
+          <input type="text" class="form-control form-control-sm" id="blood" name="blood" placeholder="e.g. O+, A-, B+"
+            [(ngModel)]="patient.blood" required>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Prescription</label>
+          <input type="text" class="form-control form-control-sm" id="prescription" name="prescription"
+            placeholder="Enter Prescription Details" [(ngModel)]="patient.prescription" required>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Dose</label>
+          <input type="text" class="form-control form-control-sm" id="dose" name="dose" placeholder="Enter Dose"
+            [(ngModel)]="patient.dose" required>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Fees</label>
+          <input type="number" class="form-control form-control-sm" id="fees" name="fees" placeholder="Enter Fees"
+            [(ngModel)]="patient.fees" required>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Urgency</label>
+          <select class="form-select form-select-sm" id="urgency" name="urgency" [(ngModel)]="patient.urgency" required>
+            <option value="" disabled selected>Select Urgency Level</option>
+            <option value="Low">Low</option>
+            <option value="Moderate">Moderate</option>
+            <option value="High">High</option>
+            <option value="Critical">Critical</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-success px-4 py-2 fw-semibold">
+          ✅ Submit
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
