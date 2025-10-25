@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="#"> <b> HopeCare Hospital </b></a>
+
+
+
+
+  <div class="mx-2">
+    <a class="btn btn-danger" style="margin:5px;" routerLink="/createmedicine">Add Medicine</a>
+    <a class="btn btn-danger" style="margin:5px;" routerLink="/docdash">Back</a>
+
+  </div>
+
+</nav>
+
+<table class="table table-striped">
+
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Drug Name</th>
+      <th>Stock</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let medicine of medicinedetail">
+      <td>{{medicine.id}}</td>
+      <td>{{medicine.drugName}}</td>
+      <td>{{medicine.stock}}</td>
+      <td>
+        <button class="btn btn-info" (click)="update(medicine.id)" type="submit">Update</button>
+        <button class="btn btn-danger" (click)="delete(medicine.id)" type="submit"
+          style="margin-left: 5px;">Delete</button>
+      </td>
+
+    </tr>
+  </tbody>
+
+</table>

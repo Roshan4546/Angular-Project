@@ -1,0 +1,77 @@
+.dept-hero {
+    background: linear-gradient(135deg, #dc3545cc, #ff6b81cc);
+    padding: 60px 0;
+    text-align: center;
+    margin-top: 4.5rem;
+}
+
+.dept-hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.dept-hero p {
+    color: #ffe8ea;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Content */
+.dept-content img {
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    width: 100%;
+    object-fit: cover;
+    max-height: 380px;
+}
+
+.dept-content img:hover {
+    transform: scale(1.03);
+}
+
+/* Doctors list */
+.doctors h3,
+.treatment-steps h3,
+.machines h3 {
+    color: #dc3545;
+}
+
+/* make badges neat */
+.machines .badge {
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .dept-hero {
+        padding: 40px 0;
+    }
+
+    .dept-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .dept-content img {
+        max-height: 240px;
+    }
+}
+
+/* Footer sticky behavior (keeps at bottom when content is short) */
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    margin-top: auto;
+    background: #212529;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}

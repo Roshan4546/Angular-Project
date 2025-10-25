@@ -1,0 +1,72 @@
+<app-header></app-header>
+
+<section class="contact mt-5 py-5">
+    <div class="container">
+        <h2 class="text-center text-primary fw-bold mb-5">Contact Us</h2>
+
+        <div class="row g-5">
+            <!-- Contact Info -->
+            <div class="col-md-5">
+                <div class="contact-info">
+                    <h4 class="fw-bold mb-3">Get in Touch</h4>
+                    <p>
+                        <i class="bi bi-geo-alt-fill text-danger me-2"></i>
+                        City Care Hospital, MG Road, Mumbai, India
+                    </p>
+                    <p>
+                        <i class="bi bi-telephone-fill text-success me-2"></i>
+                        +91 98765 43210
+                    </p>
+                    <p>
+                        <i class="bi bi-envelope-fill text-primary me-2"></i>
+                        contact@citycarehospital.com
+                    </p>
+
+                    <h5 class="fw-bold mt-4">Working Hours</h5>
+                    <p>Monday - Saturday: 8:00 AM - 8:00 PM</p>
+                    <p>Sunday: Emergency Only</p>
+                </div>
+
+                <div class="map mt-4">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.957163582715!2d72.87765521490173!3d19.0760904870867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6302a5a0a19%3A0x7a5e96e9a1a04988!2sMumbai!5e0!3m2!1sen!2sin!4v1678881234567"
+                        width="100%" height="250" style="border: 0" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="col-md-7">
+                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" id="name" formControlName="name" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" />
+                        <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                            Name is required (min 3 characters)
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" formControlName="email" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+                        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                            Enter a valid email address
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" formControlName="message" rows="4" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f['message'].errors }"></textarea>
+                        <div *ngIf="submitted && f['message'].errors" class="invalid-feedback">
+                            Message should be at least 10 characters
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary px-4">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

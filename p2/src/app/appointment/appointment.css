@@ -1,0 +1,100 @@
+/* Table container */
+.table-container {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1000px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.6s ease;
+}
+
+.table-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Modern table style */
+.appointment-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.appointment-table thead {
+  background: linear-gradient(90deg, #ff6b6b, #ff8787);
+  color: #fff;
+}
+
+.appointment-table th,
+.appointment-table td {
+  padding: 14px 16px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.appointment-table tbody tr {
+  transition: all 0.3s ease;
+}
+
+.appointment-table tbody tr:hover {
+  background: #f8f9fa;
+  transform: scale(1.01);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Delete button */
+.btn-delete {
+  background: #ff4d4d;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-delete:hover {
+  background: #e60000;
+  transform: scale(1.05);
+}
+
+/* Fade-in animation for rows */
+.fade-in {
+  animation: rowFade 0.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes rowFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optional delete animation */
+.fade-out {
+  animation: rowFadeOut 0.4s ease forwards;
+}
+
+@keyframes rowFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}

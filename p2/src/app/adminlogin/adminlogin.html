@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="#"> <b> City Care Hospital </b></a>
+  <div class="mx-2">
+    <button style="margin: 5px;" class="btn btn-danger" data-toggle="modal" data-target="#loginModal"><a
+        style="color:white;" href="javascript:void(0);" routerLink="/home">Home</a></button>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="text-center">
+          <h1>Login</h1>
+          <h6>Please enter your username or password</h6>
+        </div>
+        <form action="">
+
+          <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">
+              <h4>Username</h4>
+            </label>
+            <input type="text" name="username" id="formGroupExampleInput" [(ngModel)]="username2" class="form-control"
+              placeholder="User name" required autocomplete="username">
+          </div>
+
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">
+              <h4>Password</h4>
+            </label>
+            <input type="password" name="password" id="formGroupExampleInput2" [(ngModel)]="password"
+              class="form-control" placeholder="password" required autocomplete="current-password">
+          </div>
+
+          <div class="d-grid gap-2 d-md-block">
+            <button (click)="checkLogin()" style="margin: 5px;" class="btn btn-success" type="button">Login</button>
+            <button style="margin: 5px;" class="btn btn-warning" type="button" routerLink="/home">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

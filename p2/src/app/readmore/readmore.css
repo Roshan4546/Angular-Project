@@ -1,0 +1,26 @@
+h2 {
+    font-family: 'Poppins', sans-serif;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    height: 220px;
+    object-fit: cover;
+}
+
+.modal-body img {
+    border-radius: 10px;
+}
+
+.badge {
+    font-size: 0.85rem;
+    padding: 0.5em 0.8em;
+}

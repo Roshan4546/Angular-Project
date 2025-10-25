@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="#"> <b> HopeCare Hospital </b></a>
+
+
+
+
+  <div class="mx-2">
+    <button style="margin: 5px;" class="btn btn-danger" data-toggle="modal" data-target="#loginModal"><a
+        style="color: white;" href="javascript:void(0);" routerLink="/create-appointment">Add Appointment</a></button>
+    <button style="margin: 5px;" class="btn btn-danger" data-toggle="modal" data-target="#loginModal"><a
+        style="color:white;" href="javascript:void(0);" routerLink="/admin">Back</a></button>
+  </div>
+</nav>
+
+<div class="table-container">
+  <h2 class="table-title">Patient Appointments</h2>
+
+  <table class="appointment-table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Symptoms</th>
+        <th>Number</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let appointment of appointmentDetail" class="fade-in">
+        <td>{{appointment.id}}</td>
+        <td>{{appointment.name}}</td>
+        <td>{{appointment.age}}</td>
+        <td>{{appointment.symptoms}}</td>
+        <td>{{appointment.number}}</td>
+        <td>
+          <button (click)="delete(appointment.id)" class="btn-delete">
+            ✖ Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

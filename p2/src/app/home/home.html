@@ -1,0 +1,124 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
+    <div class="container-fluid"> <!-- Brand --> <a class="navbar-brand fw-bold text-danger" routerLink="/">City Care
+            Hospital</a> <!-- Toggler --> <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span> </button> <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" routerLink="/" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact:true}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/about">About</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/doctors">Doctors</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/blog">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/contact">Contact</a></li>
+
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Departments
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li *ngFor="let dept of services">
+                            <a class="dropdown-item d-flex align-items-center"
+                                [routerLink]="['/departments', dept.title.toLowerCase()]">
+                                <i [class]="dept.icon + ' me-2'"></i> {{ dept.title }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+
+            <!-- Login Dropdown -->
+            <li class="nav-item"><a class="nav-link" routerLink="/signup" class="btn btn-danger"
+                    style="margin-right:5px; border-radius: 30px;">New User Portal</a></li>
+            <div class="d-flex align-items-center"> <select class="custom-select-dropdown"
+                    onchange="if(this.value) window.location=this.value" title="who you are..">
+                    <option value="" selected disabled> City Care Hospital Portal</option>
+                    <option value="/adminlogin">Login</option>
+                    <option value="/doclogin">Doctor Login</option>
+                    <option value="/nurselogin">Nurse Login</option>
+                    <option value="/patientlogin">Patient Login</option>
+                    <option value="/hospitallogin">Hospital Accounts</option>
+                    <option value="/maintanacelogin">Maintanance Staff</option>
+                    <option value="/ambulatorylogin">Ambulatory Care</option>
+                    <option value="/pharmacylogin">Pharmacy Care</option>
+                </select> </div>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero d-flex align-items-center text-center text-white">
+    <div class="container">
+        <h1 class="display-4 fw-bold animate_animated animate_fadeInDown">Welcome to City Care Hospital</h1>
+        <p class="lead mt-3 animate_animated animate_fadeInUp">Because Every Life Deserves Hope ❤</p> <a
+            routerLink="/services"
+            class="btn btn-danger btn-lg mt-4 shadow animate_animated animatepulse animate_infinite"
+            routerLink="/services">Explore Our
+            Services</a>
+    </div>
+</section>
+
+<!-- COUNTER SECTION -->
+<section class="stats-section text-center py-5 bg-light">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-3">
+                <h2 class="text-danger fw-bold counter" data-target="25000">0</h2>
+                <p>Patients Treated</p>
+            </div>
+            <div class="col-md-3">
+                <h2 class="text-danger fw-bold counter" data-target="150">0</h2>
+                <p>Qualified Doctors</p>
+            </div>
+            <div class="col-md-3">
+                <h2 class="text-danger fw-bold counter" data-target="20">0</h2>
+                <p>Departments</p>
+            </div>
+            <div class="col-md-3">
+                <h2 class="text-danger fw-bold counter" data-target="50">0</h2>
+                <p>Awards Won</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section class="services py-5">
+    <div class="container text-center">
+        <h2 class="mb-5 fw-bold text-danger">Our Main Departments</h2>
+        <div class="row g-4">
+            <div class="col-md-4" *ngFor="let service of services">
+                <div class="card service-card h-100 shadow-lg">
+                    <div class="card-body">
+                        <i [class]="service.icon + ' display-4 text-danger'"></i>
+                        <h4 class="card-title mt-3">{{service.title}}</h4>
+                        <p class="card-text">{{service.text}}</p>
+
+                        <!-- ✅ Changed router link to dynamic readmore route -->
+                        <a [routerLink]="['/readmore', service.title.toLowerCase()]" class="btn btn-outline-danger">
+                            Read More
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer text-white text-center py-4">
+    <div class="container">
+        <div class="mb-3"> <a href="#" class="text-white mx-2"><i class="bi bi-facebook"></i></a> <a href="#"
+                class="text-white mx-2"><i class="bi bi-instagram"></i></a> <a href="#" class="text-white mx-2"><i
+                    class="bi bi-twitter"></i></a> <a href="#" class="text-white mx-2"><i
+                    class="bi bi-linkedin"></i></a> </div>
+        <p class="mb-0">&copy; 2025 City Care Hospital | Designed with ❤ for Better Healthcare</p>
+    </div>
+</footer>
+
+<!-- Chatbot -->
+<button class="chatbot-btn" routerLink="/chatbot">💬 Chat</button>
