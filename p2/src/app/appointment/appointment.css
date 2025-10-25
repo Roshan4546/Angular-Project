@@ -1,23 +1,58 @@
-/* Table container */
-.table-container {
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 1000px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 0.6s ease;
-}
-
-.table-title {
-  font-size: 24px;
-  font-weight: 700;
+/* ===== Global ===== */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f7f9fc;
   color: #333;
-  margin-bottom: 15px;
-  text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
-/* Modern table style */
+/* ===== Navbar ===== */
+.navbar {
+  background: linear-gradient(90deg, #007bff, #00a3ff);
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  color: #fff !important;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.navbar .btn {
+  border-radius: 25px;
+  padding: 8px 18px;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.navbar .btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ===== Table Container ===== */
+.table-container {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  animation: fadeInUp 0.8s ease;
+}
+
+/* ===== Table Title ===== */
+.table-title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #007bff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ===== Table ===== */
 .appointment-table {
   width: 100%;
   border-collapse: collapse;
@@ -26,75 +61,83 @@
 }
 
 .appointment-table thead {
-  background: linear-gradient(90deg, #ff6b6b, #ff8787);
-  color: #fff;
+  background-color: #007bff;
+  color: white;
 }
 
 .appointment-table th,
 .appointment-table td {
-  padding: 14px 16px;
+  padding: 12px 15px;
   text-align: center;
-  font-size: 15px;
 }
 
 .appointment-table tbody tr {
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .appointment-table tbody tr:hover {
-  background: #f8f9fa;
+  background-color: #eef6ff;
   transform: scale(1.01);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Delete button */
+/* ===== Delete Button ===== */
 .btn-delete {
-  background: #ff4d4d;
+  background-color: #ff4d4f;
   border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
-  color: #fff;
-  font-weight: 600;
+  color: white;
+  border-radius: 20px;
+  padding: 6px 14px;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+  font-size: 0.9rem;
+  transition: 0.3s ease;
 }
 
 .btn-delete:hover {
-  background: #e60000;
-  transform: scale(1.05);
+  background-color: #d9363e;
+  transform: translateY(-1px);
 }
 
-/* Fade-in animation for rows */
+/* ===== Fade In Animation ===== */
 .fade-in {
-  animation: rowFade 0.5s ease forwards;
   opacity: 0;
+  animation: fadeIn 0.6s forwards;
 }
 
-@keyframes rowFade {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-
+@keyframes fadeIn {
   to {
     opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
     transform: translateY(0);
-  }
-}
-
-/* Optional delete animation */
-.fade-out {
-  animation: rowFadeOut 0.4s ease forwards;
-}
-
-@keyframes rowFadeOut {
-  from {
     opacity: 1;
-    transform: scale(1);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .table-container {
+    padding: 15px;
   }
 
-  to {
-    opacity: 0;
-    transform: scale(0.9);
+  .navbar {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .btn {
+    font-size: 0.85rem;
+    margin-top: 8px;
+  }
+
+  .appointment-table th,
+  .appointment-table td {
+    font-size: 0.85rem;
   }
 }
