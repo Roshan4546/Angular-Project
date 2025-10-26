@@ -1,0 +1,100 @@
+/* ===== Navbar ===== */
+.navbar {
+  background: linear-gradient(90deg, #0d6efd, #0056b3);
+  padding: 0.6rem 1rem;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-brand {
+  font-size: 1.3rem;
+  color: #fff !important;
+  letter-spacing: 0.5px;
+}
+
+.btn-danger {
+  border-radius: 5px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+
+/* ===== Mini Container ===== */
+.mini-container {
+  max-width: 550px;
+  margin: 40px auto;
+}
+
+.mini-card {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.mini-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Mini Table ===== */
+.mini-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.mini-table th {
+  background-color: #f8f9fa;
+  color: #0d6efd;
+  font-weight: 600;
+  text-align: left;
+  padding: 8px 12px;
+  width: 45%;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.mini-table td {
+  padding: 8px 12px;
+  text-align: right;
+  color: #333;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* ===== Badge Styling ===== */
+.badge {
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 8px;
+}
+
+/* ===== Footer Button ===== */
+.card-footer a {
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.card-footer a:hover {
+  transform: translateY(-1px);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 576px) {
+  .mini-container {
+    margin: 20px;
+  }
+
+  .mini-table th,
+  .mini-table td {
+    font-size: 0.85rem;
+    padding: 6px 8px;
+  }
+
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+}
