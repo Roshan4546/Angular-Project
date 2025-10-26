@@ -17,7 +17,7 @@
 </nav>
 
 <div class="signup-bg d-flex justify-content-center align-items-center">
-  <div class="card signup-card shadow-lg p-4 rounded-4 animate__animated animate__fadeInDown">
+  <div class="card signup-card shadow-lg p-4 rounded-4 animate_animated animate_fadeInDown">
     <h2 class="text-center text-danger mb-4 fw-bold">
       <i class="bi bi-hospital"></i> HopeCare Hospital
     </h2>
@@ -25,17 +25,19 @@
     <h4 class="text-center mb-3 text-dark">Create Your Account</h4>
 
     <!-- Step 1: Select Role -->
-    <div *ngIf="!selectedRole" class="text-center animate__animated animate__fadeIn">
+    <div *ngIf="!showForm" class="text-center animate_animated animate_fadeIn">
       <label class="form-label fw-semibold mb-2">Who are you?</label>
       <select class="form-select stylish-select" [(ngModel)]="selectedRole">
-        <option value="" disabled selected>Select your role</option>
+        <option value="" disabled>Select your role</option>
         <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
       </select>
-      <button class="btn btn-danger mt-4 w-100 fw-semibold py-2" [disabled]="!selectedRole">Next</button>
+      <button class="btn btn-danger mt-4 w-100 fw-semibold py-2" [disabled]="!selectedRole" (click)="showForm = true">
+        Next
+      </button>
     </div>
 
-    <!-- Step 2: Show Signup Form -->
-    <div *ngIf="selectedRole" class="animate__animated animate__fadeIn">
+    <!-- Step 2: Signup Form -->
+    <div *ngIf="showForm" class="animate_animated animate_fadeIn">
       <h5 class="text-center mb-3 text-danger fw-bold">{{ selectedRole }} Registration</h5>
 
       <form (ngSubmit)="onSignup()">
@@ -63,7 +65,7 @@
         <div class="form-group mb-3">
           <label class="fw-semibold">Gender</label>
           <select class="form-select stylish-select" [(ngModel)]="signupData.gender" name="gender">
-            <option value="" disabled selected>Select Gender</option>
+            <option value="" disabled>Select Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="Other">Other</option>
@@ -71,7 +73,6 @@
         </div>
 
         <button type="submit" class="btn btn-danger w-100 fw-semibold py-2">Sign Up</button>
-
       </form>
     </div>
   </div>

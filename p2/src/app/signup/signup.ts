@@ -8,23 +8,18 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule,RouterLink], // remove AppRoutingModule
+  imports: [CommonModule, FormsModule, HttpClientModule, RouterLink], // remove AppRoutingModule
   templateUrl: './signup.html',
   styleUrls: ['./signup.css']
 })
 export class Signup {
   roles = [
-    'ADMIN',
-    'DOCTOR',
-    'NURSE',
-    'PATIENT',
-    'HOSPITALACCOUNTS',
-    'MAINTANANCESTAFF',
-    'AMBULANCE',
-    'PHARMACY'
+    'ADMIN', 'DOCTOR', 'NURSE', 'PATIENT',
+    'HOSPITALACCOUNTS', 'MAINTENANCESTAFF', 'AMBULANCE', 'PHARMACY'
   ];
 
   selectedRole: string | null = null;
+  showForm = false;
 
   signupData = {
     name: '',
@@ -38,8 +33,7 @@ export class Signup {
   constructor(private http: HttpClient) { }
 
   onSignup() {
-    if (!this.signupData.name || !this.signupData.email || !this.signupData.password || !this.selectedRole)
-    {
+    if (!this.signupData.name || !this.signupData.email || !this.signupData.password || !this.selectedRole) {
       alert('Please fill all required fields before submitting.');
       return;
     }
@@ -50,7 +44,7 @@ export class Signup {
       .subscribe({
         next: (res) => {
           console.log('User registered:', res);
-          alert(`${this.selectedRole} registered successfully!`);
+          alert(`${this.selectedRole} registered successfully!`)  // <-- Corrected here
         },
         error: (err) => {
           console.error('Registration error:', err);

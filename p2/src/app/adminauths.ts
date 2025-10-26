@@ -15,6 +15,11 @@ export class Adminauths {
       sessionStorage.setItem('username2', username2)
       return true
     }
+    else if (username2 == "Roshan" && password == "patra")
+    {
+      sessionStorage.setItem('username2', username2)
+      return true
+    }
     else
     {
       return false

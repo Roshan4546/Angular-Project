@@ -26,9 +26,9 @@
               <span
                 class="badge"
                 [ngClass]="{
-                  'bg-success': medicine.stock > 50,
-                  'bg-warning text-dark': medicine.stock <= 50 && medicine.stock > 10,
-                  'bg-danger': medicine.stock <= 10
+                  'bg-success': +medicine.stock > 50,
+                  'bg-warning text-dark': +medicine.stock <= 50 && +medicine.stock > 10,
+                  'bg-danger': +medicine.stock <= 10
                 }"
               >
                 {{ medicine.stock }}
