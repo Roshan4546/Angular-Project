@@ -12,5 +12,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-appointment.css']
 })
 export class CreateAppointment {
-  
+    appointmentGen: AppointmentData = new AppointmentData();
+
+  constructor(private appointments: Appointments, private router: Router) { }
+
+  saveAppointment() {
+    this.appointments.CreateAppointment(this.appointmentGen).subscribe(data => {
+      console.log(data);
+      this.goToAppointment();
+    });
+  }
+
+  onSubmit() {
+    this.saveAppointment();
+  }
+
+  goToAppointment() {
+    this.router.navigate(['/appointment']);
+  }
 }
