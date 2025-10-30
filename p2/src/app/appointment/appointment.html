@@ -1,0 +1,50 @@
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-md navbar-dark">
+  <a class="navbar-brand fw-bold" href="#">City Care Hospital</a>
+
+  <div class="ms-auto d-flex">
+    <button class="btn btn-primary me-2">
+      <a class="text-white text-decoration-none" routerLink="/create-appointment">Add Appointment</a>
+    </button>
+    <button class="btn btn-outline-light">
+      <a class="text-white text-decoration-none" routerLink="/admin">Back</a>
+    </button>
+  </div>
+</nav>
+
+
+<!-- Table Section -->
+<div class="table-container">
+  <h2 class="table-title">Patient Appointments</h2>
+
+  <div class="table-responsive">
+    <table class="appointment-table table table-hover align-middle text-center">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Symptoms</th>
+          <th>Number</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let appointment of appointmentDetail" class="fade-in">
+          <td>{{ appointment.id }}</td>
+          <td>{{ appointment.name }}</td>
+          <td>{{ appointment.age }}</td>
+          <td>{{ appointment.symptoms }}</td>
+          <td>{{ appointment.number }}</td>
+          <td>
+            <button (click)="delete(appointment.id)" class="btn-delete">
+              ✖ Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
