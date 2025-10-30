@@ -1,0 +1,29 @@
+<app-header></app-header>
+
+<div class="doctor-bg">
+    <div class="doctors container mt-5 py-5">
+        <h2 class="fw-bold text-center text-primary mb-5">Our Doctors</h2>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4" *ngFor="let doctor of doctors">
+                <div class="card shadow-sm doctor-card h-100">
+                    <img [src]="doctor.image" [alt]="doctor.name" class="card-img-top doctor-img" />
+
+                    <div class="card-body text-center">
+                        <h5 class="fw-semibold mb-1">{{ doctor.name }}</h5>
+                        <p class="text-muted mb-1">{{ doctor.specialization }}</p>
+                        <p class="small text-secondary mb-2">
+                            Experience: {{ doctor.experience }} years
+                        </p>
+                        <p class="doctor-desc">{{ doctor.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <button routerLink="/home" class="btn btn-outline-primary">
+            <i class="bi bi-arrow-left"></i> Back to Home
+        </button>
+    </div>
+</div>
