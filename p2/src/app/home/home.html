@@ -1,23 +1,22 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
-    <div class="container-fluid"> <!-- Brand --> <a class="navbar-brand fw-bold text-danger" routerLink="/">City Care
-            Hospital</a> <!-- Toggler --> <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span> </button> <!-- Links -->
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold text-danger" routerLink="/">City Care Hospital</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" routerLink="/" routerLinkActive="active"
-                        [routerLinkActiveOptions]="{exact:true}">Home</a></li>
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" routerLink="/">Home</a></li>
                 <li class="nav-item"><a class="nav-link" routerLink="/services">Services</a></li>
                 <li class="nav-item"><a class="nav-link" routerLink="/about">About</a></li>
                 <li class="nav-item"><a class="nav-link" routerLink="/doctors">Doctors</a></li>
                 <li class="nav-item"><a class="nav-link" routerLink="/blog">Blog</a></li>
                 <li class="nav-item"><a class="nav-link" routerLink="/contact">Contact</a></li>
 
-                <!-- Dropdown -->
+                <!-- Departments Dropdown -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Departments
-                    </a>
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Departments</a>
                     <ul class="dropdown-menu">
                         <li *ngFor="let dept of services">
                             <a class="dropdown-item d-flex align-items-center"
@@ -27,24 +26,36 @@
                         </li>
                     </ul>
                 </li>
-
             </ul>
 
-            <!-- Login Dropdown -->
-            <li class="nav-item"><a class="nav-link" routerLink="/signup" class="btn btn-danger"
-                    style="margin-right:5px; border-radius: 30px;">New User Portal</a></li>
-            <div class="d-flex align-items-center"> <select class="custom-select-dropdown"
-                    onchange="if(this.value) window.location=this.value" title="who you are..">
-                    <option value="" selected disabled> City Care Hospital Portal</option>
-                    <option value="/adminlogin">Login</option>
-                    <option value="/doclogin">Doctor Login</option>
-                    <option value="/nurselogin">Nurse Login</option>
-                    <option value="/patientlogin">Patient Login</option>
-                    <option value="/hospitallogin">Hospital Accounts</option>
-                    <option value="/maintanacelogin">Maintanance Staff</option>
-                    <option value="/ambulatorylogin">Ambulatory Care</option>
-                    <option value="/pharmacylogin">Pharmacy Care</option>
-                </select> </div>
+            <ul class="navbar-nav align-items-center">
+                <!-- Show if NOT logged in -->
+                <ng-container *ngIf="!user">
+                    <li class="nav-item">
+                        <a class="btn btn-danger rounded-pill me-2" routerLink="/signup">New User Portal</a>
+                    </li>
+                    <li class="nav-item">
+                        <select class="custom-select-dropdown" (change)="onRoleSelect($event)">
+                            <option value="" disabled selected>City Care Hospital Portal</option>
+                            <option value="/adminlogin">Admin Login</option>
+                            <option value="/doclogin">Doctor Login</option>
+                            <option value="/patientlogin">User Login</option>
+                        </select>
+                    </li>
+                </ng-container>
+
+                <!-- Show if logged in -->
+                <ng-container *ngIf="user">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown">
+                            {{ user.name }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+                        </ul>
+                    </li>
+                </ng-container>
+            </ul>
         </div>
     </div>
 </nav>
@@ -53,33 +64,21 @@
 <section class="hero d-flex align-items-center text-center text-white">
     <div class="container">
         <h1 class="display-4 fw-bold animate_animated animate_fadeInDown">Welcome to City Care Hospital</h1>
-        <p class="lead mt-3 animate_animated animate_fadeInUp">Because Every Life Deserves Hope ❤</p> <a
-            routerLink="/services"
-            class="btn btn-danger btn-lg mt-4 shadow animate_animated animatepulse animate_infinite"
-            routerLink="/services">Explore Our
-            Services</a>
+        <p class="lead mt-3 animate_animated animate_fadeInUp">Because Every Life Deserves Hope ❤</p>
+        <a routerLink="/services"
+            class="btn btn-danger btn-lg mt-4 shadow animate_animated animatepulse animate_infinite">
+            Explore Our Services
+        </a>
     </div>
 </section>
 
-<!-- COUNTER SECTION -->
+<!-- COUNTERS -->
 <section class="stats-section text-center py-5 bg-light">
     <div class="container">
         <div class="row g-4">
-            <div class="col-md-3">
-                <h2 class="text-danger fw-bold counter" data-target="25000">0</h2>
-                <p>Patients Treated</p>
-            </div>
-            <div class="col-md-3">
-                <h2 class="text-danger fw-bold counter" data-target="150">0</h2>
-                <p>Qualified Doctors</p>
-            </div>
-            <div class="col-md-3">
-                <h2 class="text-danger fw-bold counter" data-target="20">0</h2>
-                <p>Departments</p>
-            </div>
-            <div class="col-md-3">
-                <h2 class="text-danger fw-bold counter" data-target="50">0</h2>
-                <p>Awards Won</p>
+            <div class="col-md-3" *ngFor="let stat of stats">
+                <h2 class="text-danger fw-bold counter" [attr.data-target]="stat.target">0</h2>
+                <p>{{ stat.label }}</p>
             </div>
         </div>
     </div>
@@ -94,31 +93,14 @@
                 <div class="card service-card h-100 shadow-lg">
                     <div class="card-body">
                         <i [class]="service.icon + ' display-4 text-danger'"></i>
-                        <h4 class="card-title mt-3">{{service.title}}</h4>
-                        <p class="card-text">{{service.text}}</p>
-
-                        <!-- ✅ Changed router link to dynamic readmore route -->
+                        <h4 class="card-title mt-3">{{ service.title }}</h4>
+                        <p class="card-text">{{ service.text }}</p>
                         <a [routerLink]="['/readmore', service.title.toLowerCase()]" class="btn btn-outline-danger">
                             Read More
                         </a>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-<!-- FOOTER -->
-<footer class="footer text-white text-center py-4">
-    <div class="container">
-        <div class="mb-3"> <a href="#" class="text-white mx-2"><i class="bi bi-facebook"></i></a> <a href="#"
-                class="text-white mx-2"><i class="bi bi-instagram"></i></a> <a href="#" class="text-white mx-2"><i
-                    class="bi bi-twitter"></i></a> <a href="#" class="text-white mx-2"><i
-                    class="bi bi-linkedin"></i></a> </div>
-        <p class="mb-0">&copy; 2025 City Care Hospital | Designed with ❤ for Better Healthcare</p>
-    </div>
-</footer>
-
-<!-- Chatbot -->
-<button class="chatbot-btn" routerLink="/chatbot">💬 Chat</button>

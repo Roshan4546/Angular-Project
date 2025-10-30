@@ -9,45 +9,63 @@
   </div>
 </nav>
 
-<!-- Patient Table -->
-<div class="patient-container">
-  <h2 class="table-title text-center mb-4 fw-bold">Patient Records</h2>
+<!-- ========================= -->
+<!-- TWO-COLUMN SECTION -->
+<!-- ========================= -->
+<div class="mini-container">
+  <div class="row">
+    <!-- Left Table -->
+    <div class="col-md-6">
+      <h4 class="mini-title text-primary text-center mb-3">🏥 Patient Records</h4>
+      <div class="table-responsive mini-card">
+        <table class="table mini-table text-center align-middle">
+          <thead class="bg-primary text-white">
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let patient of patientdetails">
+              <td>{{ patient.id }}</td>
+              <td>{{ patient.name }}</td>
+              <td>{{ patient.age }}</td>
+              <td>
+                <button class="btn btn-xs btn-info me-1" (click)="update(patient.id)">✏️</button>
+                <button class="btn btn-xs btn-danger" (click)="delete(patient.id)">🗑️</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-  <div class="table-responsive shadow-sm rounded">
-    <table class="table table-hover align-middle text-center">
-      <thead class="table-header">
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Blood Group</th>
-          <th>Prescription</th>
-          <th>Dose</th>
-          <th>Urgency</th>
-          <th colspan="3">Actions</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr *ngFor="let patient of patientdetails" class="fade-in">
-          <td>{{ patient.id }}</td>
-          <td>{{ patient.name }}</td>
-          <td>{{ patient.age }}</td>
-          <td>{{ patient.blood }}</td>
-          <td>{{ patient.prescription }}</td>
-          <td>{{ patient.dose }}</td>
-          <td>{{ patient.urgency }}</td>
-          <td>
-            <button (click)="update(patient.id)" class="btn btn-info btn-sm">Update</button>
-          </td>
-          <td>
-            <button (click)="delete(patient.id)" class="btn btn-danger btn-sm">Delete</button>
-          </td>
-          <td>
-            <button (click)="ViewPatient(patient.id)" class="btn btn-success btn-sm">View</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- Right Table -->
+    <div class="col-md-6 mt-4 mt-md-0">
+      <h4 class="mini-title text-success text-center mb-3">📅 Booked Appointments</h4>
+      <div class="table-responsive mini-card">
+        <table class="table mini-table text-center align-middle">
+          <thead class="bg-success text-white">
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Time</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let app of appointments">
+              <td>{{ app.id }}</td>
+              <td>{{ app.fullName }}</td>
+              <td>{{ app.time }}</td>
+              <td>{{app.speciality}}</td>
+              <td>✅ Confirmed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>

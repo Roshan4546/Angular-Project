@@ -32,7 +32,7 @@ import { Servicess } from './servicess/servicess';
 import { BookAppointment } from './bookappointment/bookappointment';
 import { Readmore } from './readmore/readmore';
 import { DepartmentDetail } from './department-detail/department-detail';
-
+import { Patientlogin } from './patientlogin/patientlogin';
 const routes: Routes = [
   // Admin
   { path: 'adminlogin', component: Adminlogin },
@@ -68,7 +68,8 @@ const routes: Routes = [
   { path: 'signup', component: Signup },
   { path: 'services', component: Servicess },
   { path: 'bookappointment', component: BookAppointment },
-
+  { path: 'patientlogin', component: Patientlogin },
+  { path: '', redirectTo: '/', pathMatch: 'full' },
   // fallback
   { path: '**', redirectTo: 'home' }
 ];

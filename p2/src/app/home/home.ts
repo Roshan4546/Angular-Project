@@ -1,18 +1,17 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { UserService } from '../user.service';  // ✅ import service
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.html',
-  styleUrls: ['./home.css'],
   standalone: true,
-  imports: [CommonModule, RouterModule, RouterLink, RouterLinkActive]
+  imports: [CommonModule, RouterModule],
+  templateUrl: './home.html',
+  styleUrls: ['./home.css']
 })
-export class Home implements AfterViewInit {
-
+export class Home implements AfterViewInit, OnInit {
   services = [
     { title: 'Cardiology', text: 'Heart specialists for all ages.', icon: 'bi bi-heart', link: '/cardiology' },
     { title: 'Neurology', text: 'Brain and nervous system care.', icon: 'bi bi-brain', link: '/neurology' },
@@ -46,7 +45,14 @@ export class Home implements AfterViewInit {
     { label: 'Awards Won', target: 50 },
   ];
 
-  constructor(private router: Router) { }
+  user: any = null;
+
+  constructor(private router: Router, public userService: UserService) { }
+
+  ngOnInit() {
+    // Subscribe to reactive user changes
+    this.userService.user$.subscribe(u => this.user = u);
+  }
 
   ngAfterViewInit() {
     // Animate counters
@@ -57,12 +63,10 @@ export class Home implements AfterViewInit {
         const count = +counter.innerHTML;
         const increment = target / 200;
 
-        if (count < target)
-        {
+        if (count < target) {
           counter.innerHTML = `${Math.ceil(count + increment)}`;
           requestAnimationFrame(updateCount);
-        } else
-        {
+        } else {
           counter.innerHTML = `${target}`;
         }
       };
@@ -70,12 +74,14 @@ export class Home implements AfterViewInit {
     });
   }
 
-  /** Navigate to selected portal from dropdown */
   onRoleSelect(event: any) {
     const path = event.target.value;
-    if (path)
-    {
-      this.router.navigateByUrl(path);
-    }
+    if (path) this.router.navigateByUrl(path);
+  }
+
+  logout() {
+    this.userService.logout();
+    this.router.navigate(['/']);
   }
 }
+

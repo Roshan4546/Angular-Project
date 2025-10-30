@@ -1,0 +1,45 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold text-danger" routerLink="/">City Care Hospital</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="btn btn-outline-light rounded-pill" routerLink="/">← Back to Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Login Section -->
+<section class="vh-100 d-flex align-items-center justify-content-center bg-light">
+    <div class="card shadow p-4 rounded-4" style="width: 400px; margin-top: 60px;">
+        <h3 class="text-center text-danger mb-3 fw-bold">User Login</h3>
+        <form (ngSubmit)="onLogin()">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" [(ngModel)]="loginData.email" name="email"
+                    placeholder="Enter your email" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" [(ngModel)]="loginData.password"
+                    name="password" placeholder="Enter your password" required />
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-danger rounded-pill">Login</button>
+            </div>
+
+            <p class="text-center mt-3">
+                Don’t have an account?
+                <a routerLink="/signup" class="text-danger fw-bold text-decoration-none">Sign up</a>
+            </p>
+        </form>
+    </div>
+</section>

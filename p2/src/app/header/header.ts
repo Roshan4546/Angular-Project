@@ -1,14 +1,27 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-header',
-  standalone: false,
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './header.html',
-  styleUrl: './header.css'
+  styleUrls: ['./header.css']
 })
-export class Header {
-  constructor(private router: Router) { }
+export class Header implements OnInit {
+  user: any = null;
+
+  constructor(private router: Router, public userService: UserService) { }
+
+  ngOnInit() {
+    // Subscribe to reactive user updates
+    this.userService.user$.subscribe(u => this.user = u);
+  }
+
+
   services = [
     { title: 'Cardiology', text: 'Heart specialists for all ages.', icon: 'bi bi-heart', link: '/cardiology' },
     { title: 'Neurology', text: 'Brain and nervous system care.', icon: 'bi bi-brain', link: '/neurology' },
@@ -34,11 +47,14 @@ export class Header {
     { title: 'Vaccination Center', text: 'Routine & travel vaccinations.', icon: 'bi bi-shield-plus', link: '/vaccination' },
     { title: 'Laboratory Services', text: 'Blood tests, pathology & diagnostics.', icon: 'bi bi-flask', link: '/laboratory' },
   ];
+
   onRoleSelect(event: any) {
     const path = event.target.value;
-    if (path)
-    {
-      this.router.navigateByUrl(path);
-    }
+    if (path) this.router.navigateByUrl(path);
+  }
+
+  logout() {
+    this.userService.logout();
+    this.router.navigate(['/']);
   }
 }

@@ -14,8 +14,7 @@ import { RouterLink } from '@angular/router';
 })
 export class Signup {
   roles = [
-    'ADMIN', 'DOCTOR', 'NURSE', 'PATIENT',
-    'HOSPITALACCOUNTS', 'MAINTENANCESTAFF', 'AMBULANCE', 'PHARMACY'
+    'DOCTOR', 'USER',
   ];
 
   selectedRole: string | null = null;

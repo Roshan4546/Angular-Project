@@ -37,6 +37,7 @@ import { Servicess } from './servicess/servicess';
 import { Header } from './header/header';
 import { BookAppointment } from './bookappointment/bookappointment';
 import { Readmore } from './readmore/readmore';
+import { Patientlogin } from './patientlogin/patientlogin';
 @NgModule({
   declarations: [
     App,
@@ -65,9 +66,8 @@ import { Readmore } from './readmore/readmore';
     Pharmacy,
     Accounts,
     Servicess,
-    Header,
-    BookAppointment,
     DepartmentDetail,
+    Patientlogin,
 
 
   ],
@@ -82,8 +82,10 @@ import { Readmore } from './readmore/readmore';
     RouterLinkActive,
     NgIf,
     NgFor,
+    Header,
     Home,
     RouterLink,
+    BookAppointment,
     Readmore
   ],
   providers: [

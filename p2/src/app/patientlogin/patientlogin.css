@@ -1,0 +1,18 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    border: none;
+    background: #fff;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+input:focus {
+    box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+    border-color: #dc3545;
+}
