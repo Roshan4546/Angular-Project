@@ -19,29 +19,29 @@
   <div class="table-responsive">
     <table class="appointment-table table table-hover align-middle text-center">
       <thead>
-      <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Symptoms</th>
-        <th>Number</th>
-        <th>Action</th>
-      </tr>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Symptoms</th>
+          <th>Number</th>
+          <th>Action</th>
+        </tr>
       </thead>
 
       <tbody>
-      <tr *ngFor="let appointment of appointmentDetail" class="fade-in">
-        <td>{{ appointment.id }}</td>
-        <td>{{ appointment.name }}</td>
-        <td>{{ appointment.age }}</td>
-        <td>{{ appointment.symptoms }}</td>
-        <td>{{ appointment.number }}</td>
-        <td>
-          <button (click)="delete(appointment.id)" class="btn-delete">
-            ✖ Delete
-          </button>
-        </td>
-      </tr>
+        <tr *ngFor="let appointment of appointmentDetail" class="fade-in">
+          <td>{{ appointment.id }}</td>
+          <td>{{ appointment.name }}</td>
+          <td>{{ appointment.age }}</td>
+          <td>{{ appointment.symptoms }}</td>
+          <td>{{ appointment.number }}</td>
+          <td>
+            <button (click)="delete(appointment.id)" class="btn-delete">
+              ✖ Delete
+            </button>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
